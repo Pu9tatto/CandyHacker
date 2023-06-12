@@ -4,21 +4,29 @@ public class LeveSwitcher : MonoBehaviour
 {
     [SerializeField] private TextView textView;
     [SerializeField] private int _maxPhase = 10;
+    [SerializeField] private int _startLevel;
+
 
     private const string _levelKey = "currentLevel";
 
     private int _level;
 
+    private void Awake()
+    {
+        PlayerPrefs.SetInt(_levelKey, _startLevel);
+        PlayerPrefs.Save();
+    }
+
     private void Start()
     {
-        textView.SetText($"Level: {_level + 1}");
+        textView.SetText($"{_level + 1}");
     }
 
     public void NextLevel()
     {
         _level++;
 
-        textView.SetText($"Level: {_level + 1}");
+        textView.SetText($"{_level + 1}");
 
         SaveLevel(_level);
     }

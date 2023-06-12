@@ -42,19 +42,19 @@ MonoBehaviour:
     _time: 45
   - _minSpritesCount: 4
     _maxSpritesCount: 8
-    _minMapCount: 5
-    _maxMapCount: 6
+    _minMapCount: 7
+    _maxMapCount: 7
     _minRequiredCellsCount: 5
     _maxRequiredCellsCount: 5
     _minSelectedCellsCount: 6
     _maxSelectedCellsCount: 6
     _time: 45
-  - _minSpritesCount: 4
-    _maxSpritesCount: 20
-    _minMapCount: 6
-    _maxMapCount: 8
-    _minRequiredCellsCount: 3
-    _maxRequiredCellsCount: 3
+  - _minSpritesCount: 6
+    _maxSpritesCount: 8
+    _minMapCount: 7
+    _maxMapCount: 7
+    _minRequiredCellsCount: 5
+    _maxRequiredCellsCount: 5
     _minSelectedCellsCount: 6
     _maxSelectedCellsCount: 6
     _time: 45
@@ -66,19 +66,19 @@ MonoBehaviour:
     _maxRequiredCellsCount: 4
     _minSelectedCellsCount: 6
     _maxSelectedCellsCount: 6
-    _time: 30
+    _time: 40
   - _minSpritesCount: 6
     _maxSpritesCount: 8
-    _minMapCount: 6
+    _minMapCount: 8
     _maxMapCount: 8
     _minRequiredCellsCount: 5
     _maxRequiredCellsCount: 5
     _minSelectedCellsCount: 6
     _maxSelectedCellsCount: 6
-    _time: 30
+    _time: 40
   - _minSpritesCount: 4
     _maxSpritesCount: 8
-    _minMapCount: 4
+    _minMapCount: 6
     _maxMapCount: 8
     _minRequiredCellsCount: 4
     _maxRequiredCellsCount: 5
@@ -86,20 +86,11 @@ MonoBehaviour:
     _maxSelectedCellsCount: 6
     _time: 30
   - _minSpritesCount: 3
-    _maxSpritesCount: 3
-    _minMapCount: 4
-    _maxMapCount: 6
-    _minRequiredCellsCount: 3
-    _maxRequiredCellsCount: 4
-    _minSelectedCellsCount: 6
-    _maxSelectedCellsCount: 6
-    _time: 25
-  - _minSpritesCount: 2
     _maxSpritesCount: 20
-    _minMapCount: 4
+    _minMapCount: 5
     _maxMapCount: 10
-    _minRequiredCellsCount: 4
-    _maxRequiredCellsCount: 5
-    _minSelectedCellsCount: 6
-    _maxSelectedCellsCount: 6
-    _time: 20
+    _minRequiredCellsCount: 5
+    _maxRequiredCellsCount: 7
+    _minSelectedCellsCount: 8
+    _maxSelectedCellsCount: 8
+    _time: 25

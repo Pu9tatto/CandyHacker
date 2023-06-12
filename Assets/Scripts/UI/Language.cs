@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [DllImport("__Internal")] private static extern string GetLang();
+    [SerializeField] private string _currentLanguage;
 
-    // Update is called once per frame
-    void Update()
+    public string CurrentLanguage => _currentLanguage;
+
+    public static Language Instance;
+
+    private void Awake()
     {
-        
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+
+            _currentLanguage = GetLang();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
