@@ -40,9 +40,6 @@ public class Cell : MonoBehaviour
     {
         if (IsInteractive)
         {
-            if(EventSystem.current.IsPointerOverGameObject())
-                return;
-
             CellPositionClicked?.Invoke((XIndex, YIndex));
             CellIconClicked?.Invoke(Icon);
 

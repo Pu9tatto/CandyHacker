@@ -67,6 +67,18 @@ public class Map : MonoBehaviour
         }
     }
 
+    public void SetNonInteractiveMap()
+    {
+        for (int i = 0; i < _mapCount; i++)
+        {
+            for (int j = 0; j < _mapCount; j++)
+            {
+                _mapCells[i, j].SetInteractive(false);
+                _mapCells[i, j].SetColor(_defaultColor);
+            }
+        }
+    }
+
     public void ClearMap()
     {
         ClearMapCell();

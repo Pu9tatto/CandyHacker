@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34de27ad8b1e4648ad231b392bf8e0c, type: 3}
+  m_Name: LevelSettings
+  m_EditorClassIdentifier: 
+  _settings:
+  - _minSpritesCount: 10
+    _maxSpritesCount: 10
+    _minMapCount: 4
+    _maxMapCount: 4
+    _minRequiredCellsCount: 3
+    _maxRequiredCellsCount: 3
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 180
+  - _minSpritesCount: 6
+    _maxSpritesCount: 22
+    _minMapCount: 4
+    _maxMapCount: 4
+    _minRequiredCellsCount: 4
+    _maxRequiredCellsCount: 4
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 60
+  - _minSpritesCount: 6
+    _maxSpritesCount: 8
+    _minMapCount: 5
+    _maxMapCount: 5
+    _minRequiredCellsCount: 5
+    _maxRequiredCellsCount: 5
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 45
+  - _minSpritesCount: 4
+    _maxSpritesCount: 8
+    _minMapCount: 5
+    _maxMapCount: 6
+    _minRequiredCellsCount: 5
+    _maxRequiredCellsCount: 5
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 45
+  - _minSpritesCount: 4
+    _maxSpritesCount: 20
+    _minMapCount: 6
+    _maxMapCount: 8
+    _minRequiredCellsCount: 3
+    _maxRequiredCellsCount: 3
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 45
+  - _minSpritesCount: 15
+    _maxSpritesCount: 20
+    _minMapCount: 8
+    _maxMapCount: 8
+    _minRequiredCellsCount: 4
+    _maxRequiredCellsCount: 4
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 30
+  - _minSpritesCount: 6
+    _maxSpritesCount: 8
+    _minMapCount: 6
+    _maxMapCount: 8
+    _minRequiredCellsCount: 5
+    _maxRequiredCellsCount: 5
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 30
+  - _minSpritesCount: 4
+    _maxSpritesCount: 8
+    _minMapCount: 4
+    _maxMapCount: 8
+    _minRequiredCellsCount: 4
+    _maxRequiredCellsCount: 5
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 30
+  - _minSpritesCount: 3
+    _maxSpritesCount: 3
+    _minMapCount: 4
+    _maxMapCount: 6
+    _minRequiredCellsCount: 3
+    _maxRequiredCellsCount: 4
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 25
+  - _minSpritesCount: 2
+    _maxSpritesCount: 20
+    _minMapCount: 4
+    _maxMapCount: 10
+    _minRequiredCellsCount: 4
+    _maxRequiredCellsCount: 5
+    _minSelectedCellsCount: 6
+    _maxSelectedCellsCount: 6
+    _time: 20

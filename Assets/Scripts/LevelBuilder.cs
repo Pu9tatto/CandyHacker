@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
-    [SerializeField] private int _spritesCount;
-    [SerializeField] private int _mapCount;
-    [SerializeField] private int _requiredCellsCount;
-    [SerializeField] private int _selectedListCount;
+    [SerializeField] private LevelSettings _settings;
+
+    [SerializeField] protected LeveSwitcher _levelSwitcher;
+
     [SerializeField] private Cell _cell;
     [SerializeField] private Transform _cellContainer;
     [SerializeField] private Map _map;
     [SerializeField] private ListCellsView _requiredCellView;
     [SerializeField] private RequiredCells _requiredCells;
     [SerializeField] private PossibleSprites _possibleSprites;
+    [SerializeField] private Timer _timer;
 
+    private int _mapCount;
+    private int _requiredCellsCount;
+    private int _selectedListCount;
+    private int _spritesCount;
+    private float _time;
     private float _cellModifiedScale;
     private Vector2 _startPoint;
     private List<Sprite> _sprites;
@@ -24,6 +30,8 @@ public class LevelBuilder : MonoBehaviour
 
     private void Awake()
     {
+        InitLevelSettings();
+
         Build();
     }
 
@@ -34,6 +42,9 @@ public class LevelBuilder : MonoBehaviour
 
     private void Build()
     {
+
+        _timer.StartTimer(_time);
+
         _map.Init(_mapCount);
 
         Vector2 position;
@@ -58,8 +69,12 @@ public class LevelBuilder : MonoBehaviour
 
     public void ReBuild()
     {
+        _timer.StartTimer(_time);
+
         _map.ClearMap();
         _requiredCellView.ClearList();
+
+        InitLevelSettings();
 
         Build();
 
@@ -89,5 +104,18 @@ public class LevelBuilder : MonoBehaviour
         _requiredCells.GenerateRequiredList(_requiredCellsCount);
         _requiredCellView.Render(_requiredCells.RequiredSprites);
     }
+
+    private void InitLevelSettings()
+    {
+        int phase = SetPhase();
+
+        _spritesCount = _settings.Settings[phase].SpriteCount;
+        _mapCount = _settings.Settings[phase].MapCount;
+        _requiredCellsCount = _settings.Settings[phase].RequiredCellsCount;
+        _selectedListCount = _settings.Settings[phase].SelectedCellsCount;
+        _time = _settings.Settings[phase].Time;
+    }
+
+    private int SetPhase() => _levelSwitcher.GetLevelPhase();
 }
 

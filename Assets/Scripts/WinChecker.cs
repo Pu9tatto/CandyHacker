@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class WinChecker : MonoBehaviour
 {
@@ -7,6 +9,9 @@ public class WinChecker : MonoBehaviour
     [SerializeField] private RequiredCells _requiredCells;
     [SerializeField] private LevelBuilder _levelBuilder;
     [SerializeField] private EndGameWindowWidget _endGameWindow;
+    [SerializeField] private Button _nextLevelButton;
+
+    public event UnityAction EndGame;
 
     private int _maxSelectedSprites;
     private List<Sprite> _requiredSprites;
@@ -24,49 +29,50 @@ public class WinChecker : MonoBehaviour
         _map.SelectedSpritesChanged -= OnCheckWin;
     }
 
-    private void OnCheckWin()
+    public void ShowLoseWindow()
     {
-        if (IsWin())
-        {
-            ShowEndGameWindow();
-        }
-        else if (_selectedSprites.Count == _maxSelectedSprites)
-        {
-            ShowEndGameWindow();
-        }
+        ShowEndGameWindow(false);
     }
 
-    private void ShowEndGameWindow()
+    private void OnCheckWin()
     {
+        if (IsWin()) 
+            ShowEndGameWindow(true);
+        else if(_selectedSprites.Count == _maxSelectedSprites)
+            ShowEndGameWindow(false);
+    }
+
+    private void ShowEndGameWindow(bool isWin)
+    {
+        _map.SetNonInteractiveMap();
+
         _endGameWindow.gameObject.SetActive(true);
-        _endGameWindow.SetTitle(IsWin());
+        _endGameWindow.SetTitle(isWin);
+        _nextLevelButton.gameObject.SetActive(isWin);
+
+        EndGame?.Invoke();
     }
 
     private bool IsWin()
     {
-        int overlayCount = 0;
-        int requiredSpritesIndex = 0;
-
         _requiredSprites = _requiredCells.RequiredSprites;
         _selectedSprites = _map.SelectedSprites;
 
-        for (int i = 0; i < _selectedSprites.Count; i++)
-        {
-            if (_selectedSprites[i] == _requiredSprites[requiredSpritesIndex])
-            {
-                overlayCount++;
-                requiredSpritesIndex++;
-            }
-            else
-            {
-                overlayCount = 0;
-                requiredSpritesIndex = 0;
-            }
-        }
+        int requiredSpritesCount = _requiredSprites.Count;
+        int selectedSpritesCount = _selectedSprites.Count;
 
-        if (overlayCount == _requiredSprites.Count)
+        for (int i = 0; i <= selectedSpritesCount - requiredSpritesCount; i++)
         {
-            return true;
+            int j;
+
+            for (j = 0; j < requiredSpritesCount; j++)
+            {
+                if (_selectedSprites[i + j] != _requiredSprites[j])
+                    break;
+            }
+
+            if (j == requiredSpritesCount)
+                return true;
         }
 
         return false;
