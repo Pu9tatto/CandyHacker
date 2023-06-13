@@ -47,7 +47,7 @@ public class WinChecker : MonoBehaviour
         _map.SetNonInteractiveMap();
 
         _endGameWindow.gameObject.SetActive(true);
-        _endGameWindow.SetTitle(isWin);
+        _endGameWindow.SetEndGameWindow(isWin);
         _nextLevelButton.gameObject.SetActive(isWin);
 
         EndGame?.Invoke();

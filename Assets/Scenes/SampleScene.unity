@@ -251,8 +251,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1225018740}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1364364932}
-        m_TargetAssemblyTypeName: LeveSwitcher, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSwitcher, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -267,18 +279,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LevelBuilder, Assembly-CSharp
         m_MethodName: ReBuild
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1225018740}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1631,6 +1631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _winTitle: {fileID: 1167249140}
   _loseTitle: {fileID: 1636566487}
+  _winColor: {r: 0.67058825, g: 0.8980392, b: 0.67058825, a: 0.88235295}
+  _loseColor: {r: 0.8980393, g: 0.67058825, b: 0.67058825, a: 0.88235295}
 --- !u!1 &1277289389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,12 +2240,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364364929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ac2f2e84626da41af6e42f5578b12f, type: 3}
+  m_Script: {fileID: 11500000, guid: 48389373f9b6df645bcbc508d3233ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textView: {fileID: 444027166}
   _maxPhase: 8
-  _startLevel: 88
 --- !u!1 &1403917113
 GameObject:
   m_ObjectHideFlags: 0

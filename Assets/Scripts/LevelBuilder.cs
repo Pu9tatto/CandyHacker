@@ -5,7 +5,7 @@ public class LevelBuilder : MonoBehaviour
 {
     [SerializeField] private LevelSettings _settings;
 
-    [SerializeField] protected LeveSwitcher _levelSwitcher;
+    [SerializeField] protected LevelSwitcher _levelSwitcher;
 
     [SerializeField] private Cell _cell;
     [SerializeField] private Transform _cellContainer;
