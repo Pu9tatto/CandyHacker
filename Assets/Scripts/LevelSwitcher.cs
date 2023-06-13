@@ -3,80 +3,67 @@ using UnityEngine;
 
 public class LevelSwitcher : MonoBehaviour
 {
-    [SerializeField] private TextView textView;
+    [SerializeField] private TextView _textView;
     [SerializeField] private int _maxPhase = 10;
-    //[SerializeField] private int _startLevel;
 
-    [DllImport("__Internal")] private static extern void SaveExtern(string date);
-    [DllImport("__Internal")] private static extern void LoadExtern();
     [DllImport("__Internal")] private static extern void SetToLeaderboard(int value);
 
-    //private const string _levelKey = "currentLevel";
+    private const string _levelKey = "currentLevel";
 
-    private int _level = 0;
-
-    //private void Awake()
-    //{
-    //    PlayerPrefs.SetInt(_levelKey, _startLevel);
-    //    PlayerPrefs.Save();
-    //}
+    private int _level=0;
 
     private void Start()
     {
-        textView.SetText($"{_level + 1}");
+        _textView.SetText($"{_level + 1}");
     }
 
     public void NextLevel()
     {
         _level++;
 
-        textView.SetText($"{_level + 1}");
+        _textView.SetText($"{_level + 1}");
 
-        Save();
+        SaveLevel(_level);
 
-        SetToLeaderboard(_level);
+#if UNITY_WEBGL && !UNITY_EDITOR
+        SetToLeaderboard(_level+1);
+#endif
+
+    }
+
+    public void LoadFirstLevel()
+    {
+        LoadLevel();
     }
 
     public int GetLevelPhase()
     {
-
-        LoadExtern();
-
         int phase = (int)Mathf.Sqrt(_level);
 
         return Mathf.Min(phase, _maxPhase);
     }
 
-
-    public void Save()
+    private void SaveLevel(int level)
     {
-        string jsonString = JsonUtility.ToJson(_level);
-        SaveExtern(jsonString);
+        AnotherArt.PlayerPrefs.SetString(_levelKey, level.ToString());
+        AnotherArt.PlayerPrefs.Save();
     }
 
-    public void Load(string value)
+    private void LoadLevel()
     {
-        _level = JsonUtility.FromJson<int>(value);
+        if (AnotherArt.PlayerPrefs.HasKey(_levelKey))
+        {
+            string value = AnotherArt.PlayerPrefs.GetString(_levelKey);
+            _level = int.Parse(value);
+        }
+        else
+            _level = 0;
     }
-
-    //private void SaveLevel(int level)
-    //{
-    //    PlayerPrefs.SetInt(_levelKey, level);
-    //    PlayerPrefs.Save();
-    //}
-
-    //private void LoadLevel()
-    //{
-    //    if (PlayerPrefs.HasKey(_levelKey))
-    //        _level = PlayerPrefs.GetInt(_levelKey);
-    //    else
-    //        _level = 0;
-    //}
 
     [ContextMenu("ResetLevel")]
     private void ResetLevel()
     {
-        _level = 0; 
-        Save();
+        _level = 0;
+        SaveLevel(_level);
     }
 }

@@ -30,6 +30,8 @@ public class LevelBuilder : MonoBehaviour
 
     private void Awake()
     {
+        _levelSwitcher.LoadFirstLevel();
+
         InitLevelSettings();
 
         Build();
